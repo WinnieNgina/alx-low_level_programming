@@ -1,10 +1,10 @@
 #include <stdio.h>
-int main(void)
 /**
- * main - Entry point
+ * main - Entry point of the program.
  *
  * Return: Always 0 (Success)
  */
+int main(void)
 {
 	int num;
 
