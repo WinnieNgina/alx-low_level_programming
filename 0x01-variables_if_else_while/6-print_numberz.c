@@ -2,7 +2,7 @@
 /**
  * main - Entry point of the program
  *
- * No use of printf or puts or char
+ * Return: Always 0 (Sucess)
  */
 int main(void)
 {
