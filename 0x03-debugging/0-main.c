@@ -11,6 +11,6 @@ int main(void)
 
 	i = 98;
 	positive_or_negative(i);
-	putchar(i + '0');
+	prinf("%d\n", i);
 	return (0);
 }
