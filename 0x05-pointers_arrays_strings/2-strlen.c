@@ -2,6 +2,7 @@
 /**
  *  _strlen - Returns the length of a string.
  *  @s: The string varible whose legth is checked.
+ *  Return: length of the input string
  */
 int _strlen(char *s)
 {
