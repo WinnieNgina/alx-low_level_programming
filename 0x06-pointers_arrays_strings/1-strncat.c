@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strncpy - Entry point
+ * _strncat - Entry point
  * @dest: destination to copy to
  * @src: string copied from src
  * @n: input number of characters
