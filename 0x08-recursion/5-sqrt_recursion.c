@@ -21,7 +21,7 @@ int sqroot_finder(int g, int num)
 
 /**
  * _sqrt_recursion - returns the natural sqrt of a number
- * @n: integer to find sqrt of.
+ * @n: integer to find sqrt of (num).
  *
  * Return: natural square root or -1 if its not
  */
@@ -30,5 +30,5 @@ int _sqrt_recursion(int n)
 {
 	if (n == 0)
 		return (0);
-	return (sqroot_finder (1, n));
+	return (sqroot_finder(1, n));
 }
