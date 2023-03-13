@@ -12,7 +12,8 @@
 char *_strdup(char *str)
 {
 	char *array;
-	unsigned int index;
+	int index;
+	int num;
 
 	for (index = 0; str[index] < '\0'; index++)
 		if (index == 0)
@@ -26,9 +27,9 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
+	for (num = 0; str[num] != '\0'; num++)
 	{
-	strcpy(array, str);
-	return (array);
+		array[num] = str[num];
 	}
-	free(array);
+	return (array);
 }
