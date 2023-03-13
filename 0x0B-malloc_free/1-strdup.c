@@ -19,7 +19,8 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	array = malloc(index + 1); /* memory allocation for the array */
+	array = malloc(sizeof(char) * (index + 1));
+	/* memory allocation for the array */
 	/* 1 for null terminator*/
 	if (array == NULL) /*Check sufficiency of memory*/
 	{
@@ -29,5 +30,5 @@ char *_strdup(char *str)
 	strcpy(array, str);
 	return (array);
 	}
-	free (array);
+	free(array);
 }
