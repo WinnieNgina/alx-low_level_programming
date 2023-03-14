@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "main.h"
 /**
  * _strdup - duplicates of the string str to array
@@ -9,25 +10,18 @@
  */
 char *_strdup(char *str)
 {
-	char *array;
-	int index;
-	int num;
+	char *cpy_str;
 
-	for (index = 0; str[index] < '\0'; index++)
-		if (index == 0)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-	array = malloc(sizeof(char) * (index + 1));
-	/* memory allocation for the array */
+	cpy_str = malloc(strlen(str) + 1); /* memory allocation for the array */
 	/* 1 for null terminator*/
-	if (array == NULL) /*Check sufficiency of memory*/
+	if (cpy_str == NULL)
 	{
 		return (NULL);
 	}
-	for (num = 0; str[num] != '\0'; num++)
-	{
-		array[num] = str[num];
-	}
-	return (array);
+	strcpy(cpy_str, str);
+	return (cpy_str);
 }
