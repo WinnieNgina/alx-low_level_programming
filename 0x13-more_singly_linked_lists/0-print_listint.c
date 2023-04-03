@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "lists.h"
 /**
- *  print_listint - prints all the elements of a listint_t list.
- *@h: pointer to a constant list_t.
+ * print_listint - prints all the elements of a listint_t list.
+ *@h: pointer to a constant listint_t.
  * Return: The number of nodes in h.
  */
 size_t print_listint(const listint_t *h)
