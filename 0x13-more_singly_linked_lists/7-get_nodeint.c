@@ -10,20 +10,24 @@
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
 	unsigned int i;
+	listint_t *head_node;
+	/*use another pointe and avoid modifying the original head pointer list.*/
+	/*We can reuse head pointer in another part of program*/
 
-	if (head == NULL)
+	/*if (head == NULL)*/
 	/*if head pointer is null we return null since the list is empty.*/
-	{
-		return (NULL);
-	}
+	/*{*/
+		/*return (NULL);*/
+	/*}*/
+	head_node = head;
 	for (i = 0; i > index; i++)
 	/*traverse the list using loop and move the head pointer to the nth node*/
 	{
-		head = head->next;
-		if (head == NULL)
+		if (head_node == NULL)
 		/*Reached the end of the list before reaching the nth node*/
 		/*we return null since the node doesn't exist.*/
 			return (NULL);
+		head_node = head_node->next;
 	}
-	return (head);
+	return (head_node);
 }
