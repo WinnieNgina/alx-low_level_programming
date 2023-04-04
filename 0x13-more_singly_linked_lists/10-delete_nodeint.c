@@ -7,12 +7,12 @@
  * @head: pointer to the head of the list.
  * @index: Index of the node that should be deleted. Index starts at 0.
  *
- * Return: 1 if it succeeded, -1 if it failed.
+ * Return: 1 on success, -1 on failure.
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	unsigned int i;
-	listint_t *node, *prev_node;
+	listint_t *node, *orig_node;
 
 	if (head == NULL || *head == NULL)
 		return (-1);
@@ -23,16 +23,16 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		free(node);
 		return (1);
 	}
-	prev_node = node;
+	orig_node = node;
 	node = node->next;
 	for (i = 1; i < index; i++)
 	{
 		if (node == NULL)
 			return (-1);
-		prev_node = node;
+		orig_node = node;
 		node = node->next;
 	}
-	prev_node->next = node->next;
+	orig_node->next = node->next;
 	free(node);
 	return (1);
 }
