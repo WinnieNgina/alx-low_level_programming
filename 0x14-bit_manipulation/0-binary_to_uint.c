@@ -18,7 +18,7 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int power_count = 1;
 	/*calculates value of each ninary digit in string b*/
 
-	if (!b)
+	if (b == NULL)
 		return (0);
 	for (i = str_len - 1; i >= 0; i--)
 	/*iterate through the string from right to left*/
