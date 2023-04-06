@@ -27,7 +27,7 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 		else if (b[i] == '1')
 		{
-			num += power_count;
+			num += (b[i] - '0') * power_count;
 		}
 		power_count *= 2;
 		/*multiplies the current value of power by 2*/
