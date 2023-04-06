@@ -4,7 +4,7 @@
  *  @s: The string varible whose legth is checked.
  *  Return: length of the input string
  */
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int i = 1, total = 0;
 	char pl = s[0];
