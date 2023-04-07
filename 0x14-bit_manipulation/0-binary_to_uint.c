@@ -18,12 +18,12 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int power_count = 1;
 	/*calculates value of each ninary digit in string b*/
 
-	if (b == NULL)
+	if (!b)
 		return (0);
 	for (i = str_len - 1; i >= 0; i--)
 	/*iterate through the string from right to left*/
 	{
-		if (b[i] < '0' && b[i] > '1')
+		if (b[i] !=  '0' && b[i] != '1')
 			return (0);
 		else if (b[i] == '1')
 		{
