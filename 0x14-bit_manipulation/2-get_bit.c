@@ -12,10 +12,15 @@ int get_bit(unsigned long int n, unsigned int index)
 	char bits[sizeof(unsigned long int) * 8];
 	/*Convert the number to a bit string*/
 
-	for (len = 0; n > 0; len++)
+	/**
+	 * for (len = 0; n > 0; len++){
+	 * bits[len] = n % 2;
+	 * n = n / 2;}
+	 */
+	for (len = 0; len < sizeof(unsigned long int) * 8; len++)
 	{
-		bits[len] = n % 2;
-		n = n / 2;
+		bits[len] = n & 1;
+		n = n >> 1;
 	}
 	/*Check if index is out of range*/
 	if (index >= len)
