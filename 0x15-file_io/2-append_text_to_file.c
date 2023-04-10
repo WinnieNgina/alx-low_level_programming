@@ -10,34 +10,43 @@
  * append_text_to_file - appends text at the end of a file.
  * @text_content: NULL terminated string to write to the file
  * @filename: Name of the file to create
- * Return: 1 if the file exists and -1 if the file does not exist
+ * Return: 1 on success, -1 on failure
  *	filename is NULL return -1
- *	-1 do not have the required permissions to write the file
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	FILE *file_pointer;
+	int fd_value;
 	unsigned int len;
+	int written_bytes;
 
 	if (filename == NULL)
 		return (-1);
-	if (text_content == NULL)
-	{
-		return (1);
-	}
-	file_pointer = fopen(filename, "a");
-	/*Open file for writing in append mode*/
-	if (file_pointer == NULL)
+	fd_value = open(filename, O_WRONLY | O_APPEND);
+	/**
+	 * O_WRONLY - opens file pointed by filename for writing
+	 * O_APPEND: appends data to the end of the file
+	 */
+	if (fd_value == -1)
 	{
 		return (-1);
 	}
-	len = strlen(text_content);
-		if (fwrite(text_content, 1, len, file_pointer) != len)
-		/*Write text_content to the file*/
+	if (text_content != NULL)
+	{
+		len = strlen(text_content);
+		/*checks the length of the text_content*/
+		written_bytes = write(fd_value, text_content, len);
+		/*write function used to write the string to the file descriptor fd_value*/
+		if (written_bytes == -1 || (size_t)written_bytes != len)
+		/**
+		 * Return value of write can be -ve. Written_bytes is declared as signed int
+		 * Have a negative value if an error occurs during the write operation
+		 * To prevent a -ve comparison with len, the variable is cast to (size_t)
+		 */
 		{
-			fclose(file_pointer);
+			close(fd_value);
 			return (-1);
 		}
-	fclose(file_pointer);
+	}
+	close(fd_value);
 	return (1);
 }
