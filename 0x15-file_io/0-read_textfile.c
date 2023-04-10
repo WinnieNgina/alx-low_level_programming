@@ -26,7 +26,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd_value == -1)
 		return (0);
 	/*File cannot be opened*/
-	buffer_mem = (char *) malloc(letters * sizeof(char));
+	buffer_mem = malloc(letters * sizeof(char));
 	/*allocate memory to temporary store characters whose count is letters*/
 	if (buffer_mem == NULL)
 	{
