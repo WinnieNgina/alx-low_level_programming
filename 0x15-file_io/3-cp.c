@@ -26,10 +26,8 @@ void print_error(char *message)
  */
 int main(int argc, char *argv[])
 {
-	int file_from;
-	int file_to;
 	char buffer[BUFFER_SIZE];
-	int num_read, num_written;
+	int num_read, num_written, file_from, file_to;
 
 	if (argc != 3)
 	{
