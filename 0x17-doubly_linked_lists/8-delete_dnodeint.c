@@ -23,10 +23,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 			*head = (*head)->next;
 		}
 		else
-		{
 			*head = NULL;
-			/*Set *head to NULL for an empty list*/
-		}
 		free(tmp_head);
 		return (1);
 	}
@@ -36,11 +33,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		tmp_head = tmp_head->next;
 	}
 	if (tmp_head == NULL)
-		/*You got to the end of list without getting to idx*/
-		/*idx is out of bound*/
 		return (-1);
 	if (tmp_head->next == NULL)
-	/*deleting from end*/
 		prev_node->next = NULL;
 	else
 	{
