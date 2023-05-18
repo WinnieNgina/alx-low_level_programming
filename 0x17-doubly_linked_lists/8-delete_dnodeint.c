@@ -4,7 +4,7 @@
  * delete_dnodeint_at_index - deletes an node at position index
  * @head: a double pointer to the head node of linked list
  * @index: postion of the node deleted
- * @Return: 1 if it succeeded, -1 if it failed
+ * Return: 1 if it succeeded, -1 if it failed
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
@@ -47,4 +47,3 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	free(tmp_head);
 	return (1);
 }
-
