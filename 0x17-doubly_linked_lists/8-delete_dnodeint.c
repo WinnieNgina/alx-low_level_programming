@@ -9,9 +9,12 @@
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	unsigned int i;
-	dlistint_t *tmp_head = *head;
-	dlistint_t *prev_node;
+	dlistint_t *tmp_head;
+	dlistint_t *prev_node = NULL;
 
+	if (head == NULL || *head == NULL)
+		return (-1);
+	tmp_head = *head;
 	if (index == 0)
 	{
 		if ((*head)->next != NULL)
