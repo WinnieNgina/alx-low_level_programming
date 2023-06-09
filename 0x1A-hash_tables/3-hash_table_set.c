@@ -10,7 +10,7 @@ void addNode(hash_node_t **head, const char *key, const char *value)
 {
 	/* Create a new node and allocate memory*/
 	hash_node_t *newNode = (hash_node_t *)malloc(sizeof(hash_node_t));
-	
+
 	newNode->key = strdup(key);
 	newNode->value = strdup(value);
 	/* Make the new node point to the current head */
@@ -57,41 +57,36 @@ hash_node_t *create_item(const char *key, const char *value)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-    hash_node_t *new_element;
-    unsigned long int index;
-     hash_node_t *current_element;
+	hash_node_t *new_element;
+	unsigned long int index;
+	hash_node_t *current_element;
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
-    {
-        return 0; /*Invalid input, return failure*/
-    }
-
-    /* Create new element */
-    new_element = create_item(key, value);
-
-    /* Generate hash code for key & Generate key index for the key */
-    index = key_index((const unsigned char *)key, ht->size);
-
-    /* Store current index of array in a variable */
-    current_element = ht->array[index];
-
-    if (new_element == NULL)
-    {
-        return 0; /*Failed to create new element, return failure*/
-    }
-
-    /* Check if index in array is NULL */
-    if (current_element == NULL)
-    {
-        /* If index is NULL, insert element (create linked list) */
-        ht->array[index] = new_element;
-        return 1; /* Return success*/
-    }
-    else
-    {
-        /* If index is not NULL, handle collision */
-        addNode(&ht->array[index], key, value);
-        return 1; /* Return success*/
-    }
+	{
+		return (0); /*Invalid input, return failure*/
+	}
+	/* Create new element */
+	new_element = create_item(key, value);
+	/* Generate hash code for key & Generate key index for the key */
+	index = key_index((const unsigned char *)key, ht->size);
+	/* Store current index of array in a variable */
+	current_element = ht->array[index];
+	if (new_element == NULL)
+	{
+		return (0); /*Failed to create new element, return failure*/
+	}
+	/* Check if index in array is NULL */
+	if (current_element == NULL)
+	{
+		/* If index is NULL, insert element (create linked list) */
+		ht->array[index] = new_element;
+		return (1); /* Return success*/
+	}
+	else
+	{
+		/* If index is not NULL, handle collision */
+		addNode(&ht->array[index], key, value);
+		return (1); /* Return success*/
+	}
 }
 
