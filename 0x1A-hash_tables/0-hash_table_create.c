@@ -25,9 +25,10 @@ hash_table_t *hash_table_create(unsigned long int size)
 	{
 		return (NULL);
 	}
-	for (i = 0; i > size; i++)
+	for (i = 0; i < size; i++)
 	{
 		my_hash_table->array[i] = NULL;
+		/* Initialize the array with NULL pointers*/
 	}
 	return (my_hash_table);
 
