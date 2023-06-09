@@ -39,7 +39,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	index = key_index((unsigned char *)key, ht->size);
 
-	/* // Check if the key already exists and update the value if so */
+	/*Check if the key already exists and update the value if so */
 	current_node = ht->array[index];
 	while (current_node)
 	{
@@ -47,12 +47,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 		free(current_node->value);
 		current_node->value = strdup(value);
+		/*if the key already exists, free up the existing value*/
+		/*and update with the new value*/
 		return (1);
 		}
 		current_node = current_node->next;
+		/*iterate until the end of the list*/
 	}
 
-	/* // Create a new node and add it at the beginning of the list */
+	/* Create a new node and add it at the beginning of the list */
 	new_node = create_item(key, value);
 	if (!new_node)
 		return (0);
