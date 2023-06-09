@@ -8,48 +8,43 @@
  */
 void addNode(hash_node_t **head, const char *key, const char *value)
 {
-    /* Create a new node */
-    hash_node_t *newNode = (hash_node_t *)malloc(sizeof(hash_node_t));
-
-    newNode->key = strdup(key);
-    newNode->value = strdup(value);
-
-    /* Make the new node point to the current head */
-    newNode->next = *head;
-
-    /* Update the head to point to the new node */
-    *head = newNode;
+	/* Create a new node and allocate memory*/
+	hash_node_t *newNode = (hash_node_t *)malloc(sizeof(hash_node_t));
+	
+	newNode->key = strdup(key);
+	newNode->value = strdup(value);
+	/* Make the new node point to the current head */
+	newNode->next = *head;
+	/* Update the head to point to the new node */
+	*head = newNode;
 }
-
 /**
  * create_item - Creates a new hash node with the given key and value.
  * @key: Key for the new hash node.
  * @value: Value for the new hash node.
- *
  * Return: Pointer to the newly created hash node, or NULL if an error occurs.
  */
 hash_node_t *create_item(const char *key, const char *value)
 {
-    /* Creates a linked list with our new element */
-    hash_node_t *new_element = malloc(sizeof(hash_node_t));
+	/* Creates a linked list with our new element */
+	hash_node_t *new_element;
 
-    if (strcmp(key, "") == 0)
-    {
-        /* string cannot be empty */
-        return (NULL);
-    }
-
-    /* Mem allocation check */
-    if (new_element == NULL)
-    {
-        return (NULL);
-    }
-
-    /* Mem allocation for members of new_element */
-    new_element->key = strdup(key);
-    new_element->value = strdup(value);
-
-    return (new_element);
+	if (strcmp(key, "") == 0)
+	{
+		/* string cannot be empty */
+		return (NULL);
+	}
+	new_element = malloc(sizeof(hash_node_t));
+	/* Mem allocation check */
+	if (new_element == NULL)
+	{
+		return (NULL);
+	}
+	/* Mem allocation for members of new_element */
+	new_element->key = strdup(key);
+	new_element->value = strdup(value);
+	new_element->next = NULL;
+	return (new_element);
 }
 
 /**
