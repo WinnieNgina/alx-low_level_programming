@@ -6,7 +6,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	   $(CC) $^ -o school
+	   $(CC) $^ -o $@
 main.o: main.c
 	   $(CC) -c -o main.o main.c
 school.o: school.c
