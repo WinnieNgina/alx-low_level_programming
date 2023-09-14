@@ -16,6 +16,14 @@ int advanced_binary(int *array, size_t size, int value)
 	}
 	return (binary_recursive(array, 0, size - 1, value));
 }
+/**
+ * binary_recursive - recursively finds the occurence of an element in array
+ * @array: array of integers
+ * @left: index of the first element in subarray
+ * @right: index of the last element in subarray
+ * @value: value of element are seaching for
+ * Return: index
+ */
 int binary_recursive(int *array, size_t left, size_t right, int value)
 {
 	size_t mid, i;
@@ -44,7 +52,7 @@ int binary_recursive(int *array, size_t left, size_t right, int value)
 			return (binary_recursive(array, left, mid - 1, value));
 		}
 		else
-			return (binary_recursive(array, mid + 1, left, value));
+			return (binary_recursive(array, mid + 1, right, value));
 	}
 	return (-1);
 }
